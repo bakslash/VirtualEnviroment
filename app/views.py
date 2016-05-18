@@ -1,13 +1,11 @@
 #!/usr/bin/python
-from flask import render_template, flash, redirect
+
 from app import app
-from .forms import LoginForm
+@app.route('/')
+@app.route('/index')
 
-# index view function suppressed for brevity
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-    return render_template('login.html', 
-                           title='Sign In',
-                           form=form)
+def index():
+   
+    return "hello world"
+                           
+              
