@@ -1,20 +1,11 @@
-from flask import render_template
+from flask import render_template, flash, redirect
 from app import app
+from.forms import LoginForm
 
+# index view function suppressed for brevity
 
-@app.route('/')
-@app.route('/index')
+@app.route('/login', methods=['GET','POST'])
 def index():
-    user = {'nickname':'Miguel'} # fake user
-    posts = [# fake array of posts
-        {
-          'author': {'nickname':'john'},
-          'body': 'Beautiful day in portland'
-        },
-        {
-           'author': {'nickname':'susan'},  
-           'body': 'The Avengers movies was so cool!'
-        }  
-   ]
-    return render_template("index.html",title='Home',user=user,posts=posts)
+    form = LoginForm()
+    return render_template('login.html',title='Sign In',form=form)
  
